@@ -7,7 +7,11 @@ __author__ = 'Administrator'
 '''
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
-html = urlopen("https://wenku.baidu.com/search?word=%E7%AD%94%E6%A1%88&lm=0&od=0&fr=top_home&ie=utf-8")
+html = urlopen("https://wenku.baidu.com/search?word=excel&lm=&od=0&fr=&ie=utf-8")
 bsObj = BeautifulSoup(html,features="lxml")
-for child in bsObj.find("table",{"id":"giftList"}).children:
-    print(child)
+print(bsObj)
+url_lists = bsObj.find_all("a",{"class":"search-result-title_2af18"})
+
+for urllist in url_lists:
+    # urllist.a
+    print(urllist)
